@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, blanditiis rem vitae quaerat modi cum fugit est numquam explicabo quae, voluptatibus dolores eos sit ea iusto non aspernatur aut temporibus.</p>
+    <button class="btn logout">Logout</button>
+    <script>
+        fetch('/fetch/login.php')
+        .then(res=>res.json())
+        .then(data=>{
+           // console.log(data)
+            if(data.status!='success')
+            window.location.replace('/frontend/login.html')
+        })
+        const logout=document.querySelector('.logout')
+        logout.addEventListener('click', ()=>{
+
+            fetch('/fetch/login.php?' + new URLSearchParams({'logout':true}))
+            
+            .then(res=>res.json())
+            .then(data=>{
+               // console.log(data)
+                if(data.status=='success')
+                window.location.replace('/frontend/login.html')
+            })
+        })
+    </script>
+</body>
+</html>
