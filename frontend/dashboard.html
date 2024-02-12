@@ -16,7 +16,7 @@
         .then(data=>{
            // console.log(data)
             if(data.status!='success')
-            window.location.replace('/frontend/login.html')
+            window.location.replace('/frontend/index.html')
         })
         const logout=document.querySelector('.logout')
         logout.addEventListener('click', ()=>{
@@ -27,7 +27,7 @@
             .then(data=>{
                // console.log(data)
                 if(data.status=='success')
-                window.location.replace('/frontend/login.html')
+                window.location.replace('/frontend/index.html')
             })
         })
     </script>
